@@ -1,0 +1,40 @@
+{% extends "/base.html" %}
+
+{% block titulo %}{% endblock %}
+
+{% block contenido %}
+<nav class=" navbar navbar-dark bg-dark">
+    <a class="ms-3 navbar-brand" href="/pensamientos">
+        <i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+    <form class="form-inline">
+
+        <a class="btn btn-danger me-3" href="/logout">
+            <i class="fa fa-sign-out fa-1x"></i> salir</a>
+
+    </form>
+</nav>
+<div class="container mt-5">
+
+    <h1 class="mb-5 text-center">Bienvenido {{session['usuario']}}</h1>
+    
+    <section class="container">
+        
+        <div class="row">
+            <div class="col-sm-12">
+                
+                <h2 class="mb-5">Pensamiento de {{users[0]['nombre']}}</h2>
+        
+                {% for user in users %}
+                <p>{{user.pensamiento}}</p>
+                
+                <hr class="border border-dark">
+                {%endfor%}
+              
+            </div>
+            
+        </div>
+          
+    </section>
+
+</div>
+{% endblock %}
